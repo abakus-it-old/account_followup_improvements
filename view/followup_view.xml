@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <record id="partner_followup_improvements_form" model="ir.ui.view">
+            <field name="name">partner.followup_improvements_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account_followup.view_partner_inherit_followup_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="(//button[@name='do_button_print'])" position="before">
+                    <button name="do_manual_followup" string="Do manual followup" type="object" groups="account.group_account_user" help="Sets followup level on partner and send emails or letters" attrs="{'invisible':[('payment_amount_due', '&lt;=', 0.0)]}" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
